@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
        val studentData=db.getStudentData()
        students.clear()
        if (studentData?.count == 0) {
-           Toast.makeText(this, "No Student Register Now", Toast.LENGTH_SHORT).show()
+           Toast.makeText(this, getString(R.string.no_data_message), Toast.LENGTH_SHORT).show()
        }
        while (studentData!!.moveToNext()) {
            students.add(StudentModel(studentData.getInt(0),studentData.getString(1),studentData.getString(2),studentData.getLong(3),studentData.getString(4),studentData.getString(5),studentData.getString(6),studentData.getString(7),studentData.getString(8),studentData.getFloat(9),studentData.getString(10)))
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListener() {
         fabRegisterStudent.setOnClickListener {
             val intentRegister=Intent(this, StudentRegisterFromActivity::class.java)
-            intentRegister.putExtra("AddOrUpdate","Add")
+            intentRegister.putExtra(Constant.ADD_OR_UPDATE,getString(R.string.add))
             startActivity(intentRegister)
         }
     }

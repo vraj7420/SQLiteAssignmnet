@@ -9,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sqlliteassignment.Constant
 import com.example.sqlliteassignment.R
 import com.example.sqlliteassignment.database.StudentDatabase
 import com.example.sqlliteassignment.model.StudentModel
@@ -42,15 +44,15 @@ class RecyclerStudentListAdapter(private var ctx:Context, private var studentLis
         var tvCourse:TextView = itemView.findViewById(R.id.tvCourseName)
         var tvContactNumber: TextView = itemView.findViewById(R.id.tvContactNumber)
         var tvGender: TextView = itemView.findViewById(R.id.tvGender)
-        private var btnUpdate:Button=itemView.findViewById(R.id.btnUpdate)
-        private var btnDelete:Button=itemView.findViewById(R.id.btnDelete)
+        private var btnUpdate:ImageButton=itemView.findViewById(R.id.btnUpdate)
+        private var btnDelete:ImageButton=itemView.findViewById(R.id.btnDelete)
         init {
             btnUpdate.setOnClickListener {
                 val position=adapterPosition
                 val studentDetails=studentList[position]
                 val intentUpdate=Intent(ctx, StudentRegisterFromActivity::class.java)
-                intentUpdate.putExtra("StudentId",studentDetails.studentId)
-                intentUpdate.putExtra("AddOrUpdate","Update")
+                intentUpdate.putExtra(Constant.STUDENT_ID,studentDetails.studentId)
+                intentUpdate.putExtra(Constant.ADD_OR_UPDATE,ctx.getString(R.string.update))
                 ctx.startActivity(intentUpdate)
             }
             btnDelete.setOnClickListener {
@@ -58,9 +60,9 @@ class RecyclerStudentListAdapter(private var ctx:Context, private var studentLis
                 val student = studentList[position]
                 val id =student.studentId
                 val builder =
-                    AlertDialog.Builder(ctx, android.R.style.Theme_Material_Light_Dialog_Alert)
+                    AlertDialog.Builder(ctx)
                 builder.setTitle(ctx.getString(R.string.delete))
-                builder.setMessage("Do you Want  Delete Student Details?")
+                builder.setMessage(ctx.getString(R.string.delete_message))
                 builder.setPositiveButton("yes") { _: DialogInterface?, _: Int ->
                     val deleteStudent = StudentDatabase(ctx)
                     val delete = deleteStudent.deleteStudent(id)

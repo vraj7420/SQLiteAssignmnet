@@ -42,6 +42,8 @@
     <string name="cultural_activities">Cultural Activities</string>
     <string name="inset_data">Student Registered</string>
     <string name="update_data">Student Data Updated</string>
+    <string name="delete_message">"Do you Want  Delete Student Details?"</string>
+    <string name="no_data_message">No Student Register Now</string>
     <string-array name="courses">
         <item>B.Tech(Computer Engineering)</item>
         <item>B.Tech(I.T Engineering)</item>

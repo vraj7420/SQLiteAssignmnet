@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SQLliteAssignment2/app/src/main/res/drawable/ic_edit.xml" value="0.1625" />
         <entry key="..\:/SQLliteAssignment2/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/SQLliteAssignment2/app/src/main/res/layout/activity_student_details_from.xml" value="0.128" />
         <entry key="..\:/SQLliteAssignment2/app/src/main/res/layout/item_student_list.xml" value="0.2" />

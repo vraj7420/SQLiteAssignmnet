@@ -6,47 +6,49 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.sqlliteassignment.Constant
+import com.example.sqlliteassignment.model.StudentModel
 
-class StudentDatabase(context: Context?) : SQLiteOpenHelper(context,"StudentRegistrationNewOne.db",null,2) {
+class StudentDatabase(context: Context?) : SQLiteOpenHelper(context,"StudentRegistrationCollage.db",null,3) {
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("create Table Student(studentId INTEGER PRIMARY KEY AUTOINCREMENT,Name TEXT,email TEXT,contactNumber NUMBER,DOB DATE,gender TEXT,Address TEXT,course TEXT,HSCPassingYear YEAR,HSCPercentage NUMBER,hobbies TEXT)")
+        db?.execSQL("create Table ${Constant.TABLE_NAME}(studentId INTEGER PRIMARY KEY AUTOINCREMENT,Name TEXT,email TEXT,contactNumber NUMBER,DOB DATE,gender TEXT,Address TEXT,course TEXT,HSCPassingYear YEAR,HSCPercentage NUMBER,hobbies TEXT)")
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
         TODO("Not yet implemented")
     }
 
-    fun insertData(studentName: String?,email:String?,contactNumber:Long,dob:String?,gender:String?,address:String?,course:String,HSCPassingYear:String,HSCPercentage:Float?,hobbies:String): Boolean {
+    fun insertData(studentData:StudentModel): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put("Name",studentName)
-        contentValues.put("email", email)
-        contentValues.put("contactNumber",contactNumber)
-        contentValues.put("DOB",dob)
-        contentValues.put("gender",gender)
-        contentValues.put("Address",address)
-        contentValues.put("course",course)
-        contentValues.put("HSCPassingYear",HSCPassingYear)
-        contentValues.put("HSCPercentage",HSCPercentage)
-        contentValues.put("hobbies",hobbies)
-        val result = db.insert("Student", null, contentValues)
+        contentValues.put(Constant.STUDENT_NAME,studentData.studentName)
+        contentValues.put(Constant.STUDENT_EMAIL,studentData.email)
+        contentValues.put(Constant.CONTACT_NUMBER,studentData.contactNumber)
+        contentValues.put(Constant.STUDENT_DOB,studentData.dob)
+        contentValues.put(Constant.STUDENT_GENDER,studentData.gender)
+        contentValues.put(Constant.STUDENT_ADDRESS,studentData.address)
+        contentValues.put(Constant.STUDENT_COURSE,studentData.course)
+        contentValues.put(Constant.STUDENT_PASSING_YEAR,studentData.HSCPassingYear)
+        contentValues.put(Constant.STUDENT_PERCENTAGE,studentData.HSCPercentage)
+        contentValues.put(Constant.STUDENT_HOBBIES,studentData.hobbies)
+        val result = db.insert(Constant.TABLE_NAME, null, contentValues)
         return result != -1L
     }
 
-    fun updateStudentData(studentId: Int,studentName: String?,email:String?,contactNumber:Long,dob:String?,gender:String?,address:String?,course:String,HSCPassingYear:String,HSCPercentage:Float?,hobbies: String): Boolean {
+    fun updateStudentData(studentId: Int,studentData:StudentModel): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put("Name",studentName)
-        contentValues.put("email", email)
-        contentValues.put("contactNumber",contactNumber)
-        contentValues.put("DOB",dob)
-        contentValues.put("gender",gender)
-        contentValues.put("Address",address)
-        contentValues.put("course",course)
-        contentValues.put("HSCPassingYear",HSCPassingYear)
-        contentValues.put("HSCPercentage",HSCPercentage)
-        contentValues.put("hobbies",hobbies)
-        val result = db.update("Student",contentValues,"studentId=?", arrayOf(studentId.toString()))
+        contentValues.put(Constant.STUDENT_NAME,studentData.studentName)
+        contentValues.put(Constant.STUDENT_EMAIL,studentData.email)
+        contentValues.put(Constant.CONTACT_NUMBER,studentData.contactNumber)
+        contentValues.put(Constant.STUDENT_DOB,studentData.dob)
+        contentValues.put(Constant.STUDENT_GENDER,studentData.gender)
+        contentValues.put(Constant.STUDENT_ADDRESS,studentData.address)
+        contentValues.put(Constant.STUDENT_COURSE,studentData.course)
+        contentValues.put(Constant.STUDENT_PASSING_YEAR,studentData.HSCPassingYear)
+        contentValues.put(Constant.STUDENT_PERCENTAGE,studentData.HSCPercentage)
+        contentValues.put(Constant.STUDENT_HOBBIES,studentData.hobbies)
+        val result = db.update(Constant.TABLE_NAME,contentValues,Constant.STUDENT_ID +"=?", arrayOf(studentId.toString()))
         return result==1
     }
 
@@ -62,6 +64,6 @@ class StudentDatabase(context: Context?) : SQLiteOpenHelper(context,"StudentRegi
 
     fun deleteStudent(id: Int): Boolean {
         val db = this.writableDatabase
-        return db.delete("Student", "studentId" + "=?", arrayOf(id.toString())) > 0
+        return db.delete(Constant.TABLE_NAME, Constant.STUDENT_ID+"=?", arrayOf(id.toString())) > 0
     }
 }

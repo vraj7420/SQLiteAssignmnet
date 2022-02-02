@@ -52,6 +52,7 @@
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                     <com.google.android.material.textfield.TextInputLayout
@@ -149,6 +150,7 @@
                             android:id="@+id/tetMobileNumber"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:maxLength="10"
                             android:hint="@string/enter_contact_number"
                             android:inputType="number" />
 
@@ -171,6 +173,7 @@
                             android:textSize="16sp"
                             android:id="@+id/tvTitleHobbies"
                             app:layout_constraintTop_toTopOf="parent"/>
+
                         <com.google.android.material.checkbox.MaterialCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -179,6 +182,7 @@
                             android:id="@+id/cbSport"
                             android:textColor="@color/black"
                             app:layout_constraintTop_toBottomOf="@id/tvTitleHobbies"/>
+
                         <com.google.android.material.checkbox.MaterialCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -196,6 +200,7 @@
                             android:text="@string/cultural_activities"
                             app:layout_constraintTop_toBottomOf="@id/tvTitleHobbies"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/titDateOfBirth"
                         style="@style/CustomTextInputLayout"
@@ -256,6 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:text="@string/student_education_information"
                         android:textColor="@color/black"
                         android:textSize="20sp"
