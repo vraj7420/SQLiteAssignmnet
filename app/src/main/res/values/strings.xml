@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">SQLliteAssignment</string>
+    <string name="register_student">Register Student</string>
+    <string name="enter_student_name">Enter Student Name</string>
+    <string name="enter_student_email_address">Enter Student Email Address</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="enter_re_type_password">Enter Re-type Password</string>
+    <string name="gender">Gender :</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="enter_the_your_address">Enter the your address</string>
+    <string name="add">Add</string>
+    <string name="other">Other</string>
+    <string name="student_personal_information">Student personal information</string>
+    <string name="enter_birth_date">Enter Birth Date</string>
+    <string name="enter_contact_number">Enter Contact Number</string>
+    <string name="student_education_information">Student Education Information</string>
+    <string name="select_course">Select Course :</string>
+    <string name="hsc_details">Hsc Details :</string>
+    <string name="enter_passing_yer">Enter Passing Year :</string>
+    <string name="passing_year">Passing Year</string>
+    <string name="enter_hsc_percentage">Enter Hsc Percentage :</string>
+    <string name="percentage">Percentage</string>
+    <string name="error_full_name">Please Enter Student Name</string>
+    <string name="error_phone_number_is_empty">Please Enter Contact Number</string>
+    <string name="error_phone_number_valid">Enter Valid Contact Number</string>
+    <string name="error_email_is_empty">Please Enter Email Address</string>
+    <string name="error_email_valid">Enter valid Email Address</string>
+    <string name="error_address">please Enter Address</string>
+    <string name="error_birth_is_empty">Please Enter Date of Birth</string>
+    <string name="error_passing_year">Enter Hsc Passing  Year</string>
+    <string name="error_percentage">Enter Hsc Percentage</string>
+    <string name="student_name">Student Name</string>
+    <string name="contact_number">Contact Number:</string>
+    <string name="course_name">Course Name:</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="error_not_valid_percentage">Enter Valid Percentage</string>
+    <string name="select_hobbies">Select Hobbies</string>
+    <string name="sport">Sport</string>
+    <string name="traveling">Traveling</string>
+    <string name="cultural_activities">Cultural Activities</string>
+    <string name="inset_data">Student Registered</string>
+    <string name="update_data">Student Data Updated</string>
+    <string-array name="courses">
+        <item>B.Tech(Computer Engineering)</item>
+        <item>B.Tech(I.T Engineering)</item>
+        <item>B.Tech(Mechanical Engineering)</item>
+        <item>B.Tech(Civil Engineering)</item>
+        <item>B.Tech(E.C Engineering)</item>
+    </string-array>
+</resources>
